@@ -1,3 +1,5 @@
+package samples
+
 // String interpolation
 val language = "Scala"
 val sheetName = s"Let's learn $language basics"
@@ -133,15 +135,15 @@ val c1 = new C(9)
 c1.x
 
 // Traits -> interfaces
-trait Person {
+trait APerson {
   def name: String
 }
 
 // Case class -> records
 // all constructor parameters are public and immutable
-case class Student(name: String, year: Int) extends Person
+case class Student(name: String, year: Int) extends APerson
 
-case class Teacher(name: String, specialty: String) extends Person
+case class Teacher(name: String, specialty: String) extends APerson
 
 // Pattern matching on case classes
 def personToString(p: Person): String = p match {

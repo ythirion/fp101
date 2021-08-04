@@ -1,5 +1,3 @@
-package kotlin
-
 // String interpolation
 val language = "Kotlin"
 val sheetName = "Let's learn $language basics"
@@ -113,17 +111,17 @@ val c1 = C2(9.0)
 c1.x
 
 // Traits -> interfaces
-interface Person {
+interface APerson {
     val name: String
 }
 
 // Data classes -> records
 // all constructor parameters are public and immutable
-data class Student(override val name: String, val year: Int) : Person
-data class Teacher(override val name: String, val specialty: String) : Person
+data class Student(override val name: String, val year: Int) : APerson
+data class Teacher(override val name: String, val specialty: String) : APerson
 
 // Pattern matching on case classes
-fun personToString(p: Person): String = when (p) {
+fun personToString(p: APerson): String = when (p) {
     is Student -> "$p.name is a student in Year $p.year."
     is Teacher -> "$p.name teaches $p.whatTheyTeach."
     else -> throw IllegalArgumentException("Not supported person type")
