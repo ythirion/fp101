@@ -1,6 +1,9 @@
-import Domain_ws.*
-import Domain_ws.Data.parks
-import Domain_ws.Data.people
+import Data.parks
+import Data.people
+import Person
+import PetType
+import Park
+import Pet
 
 println("1. What are the first names of all people ?")
 people.map { p -> p.firstName }
