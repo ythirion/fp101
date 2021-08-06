@@ -13,7 +13,7 @@ println("2. Who owns Cats ?")
 fun Person.hasPetType(type: PetType): Boolean = this.pets.map { it.type }.contains(type)
 people.filter { p -> p.hasPetType(PetType.CAT) }
 
-println("3. What are the names of Mary Smiths pets ?")
+println("3. What are the names of Mary Smiths cats ?")
 people.firstOrNull { "${it.firstName} ${it.lastName}" == "Mary Smith" }
     ?.pets
     ?.filter { it.type == PetType.CAT }
@@ -29,7 +29,9 @@ countPeopleWithPet(PetType.CAT)
 println("6. How many pet types of all people ?")
 // Create an extension on Person allowing you to get Pet Types owned by the person
 fun Person.getPetTypes(): Set<PetType> = this.pets.map { it.type }.toSet()
-people.flatMap { it.getPetTypes() }.toSet()
+people.flatMap { it.getPetTypes() }
+    .toSet()
+    .size
 
 println("7. Who owns the youngest Pet ?")
 val maxAge = 100
