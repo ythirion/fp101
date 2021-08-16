@@ -110,7 +110,7 @@ class C2(val x: Double)
 val c1 = C2(9.0)
 c1.x
 
-// Traits -> interfaces
+// interfaces
 interface APerson {
     val name: String
 }
