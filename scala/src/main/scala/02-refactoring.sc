@@ -8,19 +8,6 @@ def reverse(str: String): String = {
 }
 
 reverse("t'nod ohw esoht dna yranib dnatsrednu ohw esoht : dlrow eht ni elpoep fo sepyt 01 era erehT")
-def reverseYield(str: String): String = {
-  (for (i <- str.length - 1 to 0 by -1)
-    yield str(i)).mkString
-}
-
-reverseYield("t'nod ohw esoht dna yranib dnatsrednu ohw esoht : dlrow eht ni elpoep fo sepyt 01 era erehT")
-
-def reverseRec(str: String): String = {
-  if (str.isEmpty) ""
-  else reverseRec(str.tail) + str.head
-}
-
-reverseRec("t'nod ohw esoht dna yranib dnatsrednu ohw esoht : dlrow eht ni elpoep fo sepyt 01 era erehT")
 
 println("2. Refactor the printlist function to parameterize hardcoded stuffs")
 def printList(): Unit = List.range(1, 10).foreach(i => println(s"the number is $i"))
