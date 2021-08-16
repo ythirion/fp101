@@ -10,14 +10,6 @@ fun reverse(str: String): String {
 
 println(reverse("t'nod ohw esoht dna yranib dnatsrednu ohw esoht : dlrow eht ni elpoep fo sepyt 01 era erehT"))
 
-fun String.head() = this[0]
-fun String.tail() = this.drop(1)
-fun reverseRec(str: String): String {
-    return if(str.isEmpty()) "" else reverseRec(str.tail()) + str.head()
-}
-
-println(reverseRec("t'nod ohw esoht dna yranib dnatsrednu ohw esoht : dlrow eht ni elpoep fo sepyt 01 era erehT"))
-
 println("2. Refactor the printlist function to parameterize hardcoded stuffs")
 fun printList(): Unit = (1..10).forEach { println("the number is $it") }
 printList()
