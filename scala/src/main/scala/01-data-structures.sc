@@ -111,20 +111,15 @@ println("11. Function composition - findPersonPets")
 // Create a function findPersonPets taking 2 function args and returning a composed function of :
 // - a searchPerson function taking a String as arg and returning a Person?
 // - a petMapper function taking a Pet as arg and returning a String
-def findPersonByFullName(fullName: String): Option[Person] = {
-  people.find(p => s"${p.firstName} ${p.lastName}" == fullName)
-}
+def findPersonByFullName(fullName: String): Option[Person] = people.find(p => s"${p.firstName} ${p.lastName}" == fullName)
 
 def findPersonPets(searchPerson: (String) => Option[Person],
                    petMapper: (Pet) => String): (String) => List[String] = {
   fullName =>
-    searchPerson(fullName) match {
-      case Some(marySmith) => marySmith.pets.filter(_.`type` == PetType.CAT).map(petMapper)
-      case None => Nil
-    }
+    searchPerson(fullName)
+      .map(person => person.pets.filter(_.`type` == PetType.CAT).map(petMapper))
+      .getOrElse(Nil)
 }
 
-val composedFind = findPersonPets({
-  findPersonByFullName(_)
-}, { p => p.name })
+val composedFind = findPersonPets({findPersonByFullName(_)}, { p => p.name })
 composedFind("Mary Smith")
