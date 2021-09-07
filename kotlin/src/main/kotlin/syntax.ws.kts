@@ -122,8 +122,8 @@ data class Teacher(override val name: String, val specialty: String) : APerson
 
 // Pattern matching on case classes
 fun personToString(p: APerson): String = when (p) {
-    is Student -> "$p.name is a student in Year $p.year."
-    is Teacher -> "$p.name teaches $p.whatTheyTeach."
+    is Student -> "${p.name} is a student in Year ${p.year}"
+    is Teacher -> "${p.name} teaches ${p.specialty}"
     else -> throw IllegalArgumentException("Not supported person type")
 }
 // Data equality
