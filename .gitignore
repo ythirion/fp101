@@ -37,3 +37,4 @@ out/
 lib/
 
 *.iml
+*.calva-repl
