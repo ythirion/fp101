@@ -168,3 +168,8 @@ option match {
   case Some(x) => Some(f(x))
   case None => None
 }
+
+// METHOD EXTENSIONS
+extension (i: Int)
+  def isEven(): Boolean = i % 2 == 0
+List(1, 4, 7, 8, 12).map { _.isEven() }
